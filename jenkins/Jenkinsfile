@@ -8,10 +8,10 @@ pipeline {
 
     stages {
         stage('Build') {
-	    agent{
-	   	docker {image 'maven'}
+	    //agent{
+	   	//docker { image 'maven'}
 
-	    }
+	    //}
             steps {
                 // Get some code from a GitHub repository
                 //git 'http://github.com/Lobistico/clinica-medica.git'
