@@ -39,12 +39,14 @@
                         <label for="alergia">Alergia</label>
                     </div>
                     <div class="input-field col s4">
-                        <input placeholder="Digite aqui" id="altura" type="number" line class="validate"  v-model="paciente.altura">
+                        <input placeholder="Digite aqui" id="altura" type="number" line class="validate"
+                            v-model="paciente.altura">
                         <!-- v-model="paciente.data_nascimento" /> -->
                         <label for="altura">Altura</label>
                     </div>
                     <div class="input-field col s4">
-                        <input placeholder="Digite aqui" id="peso" type="text" maxlength="3" class="validate" v-model="paciente.peso">
+                        <input placeholder="Digite aqui" id="peso" type="text" maxlength="3" class="validate"
+                            v-model="paciente.peso">
                         <!-- v-model="paciente.data_nascimento" /> -->
                         <label for="peso">Peso</label>
                     </div>
@@ -64,7 +66,8 @@
                     </div>
 
                     <div class="input-field col s12">
-                        <input placeholder="Digite aqui" id="doenca" type="text" class="validate" v-model="paciente.doenca_cronica">
+                        <input placeholder="Digite aqui" id="doenca" type="text" class="validate"
+                            v-model="paciente.doenca_cronica">
                         <!-- v-model="paciente.data_nascimento" /> -->
                         <label for="doenca">Doença Crônica</label>
                     </div>
@@ -106,10 +109,10 @@
             el: "#app",
             data() {
                 return {
-                    paciente: {
-
-                    },
+                    paciente: {},
                     pacientes: [],
+                    usuario: [],
+                    usuarios: {},
                 };
             },
             mounted() {
@@ -117,6 +120,22 @@
                 this.efetuaLogin();
             },
             methods: {
+                getUsuarioLogin() {
+                    let _this = this;
+                    //requisição do tipo GET para recuprar as entidades
+                    //envia token no header para autenticação
+                    $.ajax({
+                        url: "http://localhost:8080/usuario",
+                        method: "GET",
+                        success(r) {
+                            _this.usuario = r;
+                            console.log(_this.usuario);
+                        },
+                        error(x) {
+                            console.log(`Erro: ${x}`);
+                        },
+                    });
+                },
                 efetuaLogin() {
                     let _this = this;
                     //se houver token executa a consulta diretamente
@@ -125,16 +144,22 @@
                         $.ajax({
                             url: "http://localhost:8080/login",
                             method: "POST",
+                            
                             data: { usuario: "usuario", senha: 1234 },
                         }).done((r) => {
                             //salva o token na storage
+                            console.log("teste");
+                            getUsuarioLogin();
                             sessionStorage.setItem("token", r);
+                            _this.getUsuarioLogin();
                             _this.getPacientes();
                         });
                     } else {
                         _this.getPacientes();
+                        
                     }
                 },
+
                 getPacientes() {
                     let _this = this;
                     //requisição do tipo GET para recuprar as entidades
