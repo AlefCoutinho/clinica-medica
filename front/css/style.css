@@ -3,6 +3,40 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* nav bar responsiva */
+
+/* BARRA DE ROLAGEM */
+body::-webkit-scrollbar {
+  width: 8px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ee6e73;  
+  border: 1px solid white;
+  /* color of the scroll thumb */
+  border-radius: 0 20px 0 20px;       /* roundness of the scroll thumb */
+  /* border: 3px solid orange;  creates padding around scroll thumb */
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #0f0f0f;    /* color of the scroll thumb */
+  border-radius: 0 20px 0 20px;       /* roundness of the scroll thumb */
+  /* border: 3px solid orange;  creates padding around scroll thumb */
+}
+
+/* selecionando textos */
+h1::selection, h2::selection, h3::selection, h1::selection, a::selection, span::selection , p::selection, img::selection, input::selection, textarea::selection, button::selection  {
+  background: #443030;
+  color: #ffffff;
+}
+/* fim da estilização navbar e seleção dos textos */
+
+
+
 h2{
     font-size: 2rem;
 }
@@ -41,6 +75,10 @@ main, section{
     align-items: center; 
 
 }
+.conteudo{
+  padding-top: 100px; 
+}
+
 .home{
     padding: 20px 0;
     width: 100%;
@@ -77,6 +115,7 @@ h1{
     z-index: 9999;
     background: white;
 }
+
 .radar-spinner, .radar-spinner * {
     box-sizing: border-box;
   }
@@ -135,4 +174,10 @@ h1{
     100% {
       transform: rotate(0deg);
     }
+  }
+
+
+  /* botão */
+  .waves-effect{
+    width: 130px;
   }
