@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav-bar.css">
+   
 </head>
 <body>
     <div id="app">
@@ -16,7 +18,7 @@
         <div class="header">
             {{header()}}
         </div>
-        <section class="posicao-section">
+        <section class="posicao-section conteudo">
             <div class="container ">
                 <div class="form-login">
                     <h2>Login</h2>
@@ -88,8 +90,12 @@
                             sessionStorage.setItem("token", r);
                             window.location.href = "/"
                         }).fail((erro)=>{
-    
+                            if(erro.status === 0){
+                                _this.erro = [];
+                                _this.erro.push("Falha na conexão, tente novamente mais tarde!")
+                            }
                             if(erro.status >= 400) {
+                                _this.erro = [];
                                 _this.erro.push("Usuário ou senha incorreta")
                             }
                         });
@@ -122,6 +128,7 @@
             }
         })
     </script>
+    <script src="../js/mobileNavBar.js"></script>
 </body>
 </html>
 
