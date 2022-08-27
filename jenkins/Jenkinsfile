@@ -1,9 +1,9 @@
 pipeline {
-    agent none
+    agent any
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
-        maven "M3"
+        //maven "M3"
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
 	    //}
             steps {
                 // Get some code from a GitHub repository
-                //git 'http://github.com/Lobistico/clinica-medica.git'
+                git 'https://github.com/AlefCoutinho/clinica-medica.git'
 
                 // Run Maven on a Unix agent.
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
