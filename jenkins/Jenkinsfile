@@ -1,17 +1,12 @@
 pipeline {
     agent none
 
-   // tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-        //maven "M3"
-  //  }
-
     stages {
         stage('Build') {
-	    agent{
+	    /*agent{
 	   	docker { image 'maven'}
 
-	    }
+	    }*/
             steps {
                 // Get some code from a GitHub repository
                 //git 'https://github.com/AlefCoutinho/clinica-medica.git'
