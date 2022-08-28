@@ -48,6 +48,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col s4">
                 <div class="card teal darken-4">
                     <div class="card-content white-text">
@@ -61,7 +62,7 @@
                         </a>
                     </div>
                 </div>
-            </div </div>
+            </div>
         </div>
 
         <div class="footer">
@@ -97,6 +98,7 @@
             methods: {
                 deslogar() {
                     sessionStorage.removeItem("token");
+                    window.location.href = "/front/signin"
                 },
                 getPacientes() {
                     let _this = this;
