@@ -31,13 +31,13 @@
                     </div>
                     <div class="input-field">
                         <label for="usuario">Usuário</label>
-                        <input type="text" id="usuario" class="validate" v-model.trim.required="credencialUsuario.nome"
+                        <input type="text" id="usuario" class="validate" v-model.trim.required="credencial.nome"
                             placeholder="login">
                     </div>
 
                     <div class="input-field">
                         <label for="senha">Password</label>
-                        <input type="password" id="senha" class="validate" v-model="credencialUsuario.senha"
+                        <input type="password" id="senha" class="validate" v-model.trim.required="credencial.senha"
                             placeholder="password">
                     </div>
                     <div class="input-field col s12">
@@ -66,9 +66,8 @@
             el: "#app",
             data() {
                 return {
-                    credencialUsuario: {},
+                    credencial: {},
                     usuarios: [],
-                    credencialAPI: {},
                     erro: [],
                     loader: loader(),
                     footer: footer(),
@@ -79,6 +78,8 @@
                 getUsuarioLogin() {
                     let _this = this;
                     let usuarios = [];
+                    _this.erro = [];
+                    _this.autenticacaoForm();
 
                     //requisição do tipo GET para recuprar as entidades
                     //envia token no header para autenticação
@@ -86,19 +87,14 @@
                         url: "http://localhost:8080/usuario",
                         method: "GET",
                         success(r) {
-                            usuarios = r;
-                            // usuarios.forEach(usuario => {
-                            //     if (_this.credencialUsuario["nome"] == usuario["nome"] && _this.credencialUsuario["senha"] == usuario["senha"]) {
-                            //         _this.autenticar();
-                            //     }
-
-                            //     // console.log(age.find(i => i > 20));
-                            // });
-                            // console.log(usuarios.find(teste => usuario["nome"] == _this.credencialUsuario["nome"]))
-                            console.log(usuarios.hasOwnProperty("eric"))
-                            // console.log(usuarios.find(teste => _this.credencialUsuario["senha"] == usuario["senha"]))
-
-                            // if (usuarios.find(teste => _this.credencialUsuario["nome"] == usuario["nome"]))
+                            const vereficaUser = r.find( element =>{
+                                return element.nome === _this.credencial.nome && _this.credencial.senha === element.senha
+                            })
+                            if(vereficaUser){
+                                _this.autenticar()
+                            }else{
+                                _this.erro.push("Usuário ou senha incorreta")
+                            } 
                         },
                         error(x) {
                             console.log(`Erro: ${x}`);
@@ -113,7 +109,7 @@
                     //se houver token executa a consulta diretamente
                     if (sessionStorage.getItem("token") == null) {
                         // _this.getUsuarioLogin();
-                        _this.autenticacaoForm();
+                        
                         //envia uma consulta usando POST com usuário e senha para login
                         $.ajax({
                             url: "http://localhost:8080/login",
@@ -123,13 +119,11 @@
                             //salva o token na storage
                             sessionStorage.setItem("token", r);
                             window.location.href = "/"
-                        }).fail((erro) => {
-                            if (erro.status === 0) {
-                                _this.erro = [];
+                        }).fail((erro)=>{
+                            if(erro.status === 0){
                                 _this.erro.push("Falha na conexão, tente novamente mais tarde!")
                             }
-                            if (erro.status >= 400) {
-                                _this.erro = [];
+                            if(erro.status >= 400) {
                                 _this.erro.push("Usuário ou senha incorreta")
                             }
                         });
@@ -145,8 +139,8 @@
                 autenticacaoForm() {
                     let _this = this;
 
-                    if (_this.credencialUsuario.nome == "" || _this.credencialUsuario.nome == undefined ||
-                        _this.credencialUsuario.senha == "" || _this.credencialUsuario.senha == undefined
+                    if (_this.credencial.nome == "" || _this.credencial.nome == undefined ||
+                        _this.credencial.senha == "" || _this.credencial.senha == undefined
                     ) {
 
                         _this.limpar();
@@ -155,7 +149,7 @@
                 },
                 limpar() {
                     let _this = this;
-                    _this.credencialUsuario = {};
+                    _this.credencial = {};
                     _this.erro = []
                 }
 
