@@ -137,7 +137,7 @@ function header(){
                         <a href="/front/signin/" class="waves-effect btn green">
                             <i class="material-icons left">check</i>Sign In
                         </a>
-                        <a href="/front/signin/" class="waves-effect btn orange">
+                        <a href="/front/signup/" class="waves-effect btn orange">
                             <i class="material-icons left">check</i>Sign Up
                         </a>
                     </li>
