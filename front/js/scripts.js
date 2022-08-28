@@ -143,10 +143,10 @@ function header(){
                     <li><a href="/front/paciente/">Paciente</a></li>
                     <li>
                         <a href="/front/signin/" class="waves-effect btn green">
-                            <i class="material-icons left">check</i>Sign In
+                            Logar
                         </a>
                         <a href="/front/signup/" class="waves-effect btn orange">
-                            <i class="material-icons left">check</i>Sign Up
+                            Cadastrar
                         </a>
                     </li>
                     <li v-on:click="deslogar()">

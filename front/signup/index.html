@@ -38,7 +38,7 @@
                             <input type="password" id="senha" class="validate"  v-model.trim.required="credencial.senha" placeholder="password">
                         </div>
                         <div class="input-field">
-                            <label for="senha2">Repitir Senha</label>
+                            <label for="senha2">Repetir Senha</label>
                             <input type="password" id="senha2" class="validate" v-model.trim.required="credencial.repSenha" placeholder="Repeat password">
                         </div>
     
@@ -59,22 +59,6 @@
                 </div>
             </div>
 
-
-            <!-- <table>
-                <thead>
-                    <tr>
-                        <th style="width: 50%">Nome</th>
-                        <th>senha</th>
-
-                </thead>
-                <tbody>
-                    <tr v-for="(t, index) in usuarios" v-on:click="selecionaUsuario(t)" style="cursor: pointer">
-                        <td style="width:30%">{{t.nome}}</td>
-                        <td style="width:23%">{{t.senha}}</td>
-
-                    </tr>
-                </tbody>
-            </table> -->
         </section>
 
 
@@ -99,11 +83,7 @@
             el: "#app",
             data(){
                 return{
-                    credencial: {
-                        nome: '',
-                        senha: '',
-                        repSenha: '',
-                    },
+                    credencial: {},
                     verificaUser: this.verifLogin(),
                     usuarios: [],
                     erros: [],
@@ -180,7 +160,7 @@
                             url: "http://localhost:8080/usuario",
                             method: "POST",
                             contentType: "application/json",
-                            data: JSON.stringify({nome: _this.credencial.nome, senha: _this.credencial.senha}),
+                            data: JSON.stringify(_this.credencial),
                             beforeSend(xhr) {
                                 xhr.setRequestHeader(
                                     "Authorization",
@@ -193,11 +173,15 @@
                                window.location.href = "/front/signin/";
                             },
                             error(x) {
-                                _this.erros.push(x)
-                                console.log(`Erro: ${x}`);
+                                if(x.status === 500){
+                                    _this.erros.push("usuário inválido !")
+                                }
+                                $(".loader").hide()
                             },
                         });
+                        $(".loader").show()
                     }
+                    
                     
                 },
                 exclui() {
@@ -215,23 +199,23 @@
                                 );
                             },
                             success(r) {
+                                $(".loader").hide();
                                 _this.getUsuarios();
                                 _this.cancela();
                             },
                             error(x) {
+                                $(".loader").hide();
                                 console.log(`Erro: ${x}`);
                             },
                         });
+                        $(".loader").show();
+                       
                     }
                 },
 
                 cancela(){
                     let _this = this;
-                    _this.credencial = {
-                        nome: null,
-                        senha: null,
-                        repSenha: null,
-                    };
+                    _this.credencial = {};
                     _this.erro = []
                 }
     

@@ -237,13 +237,16 @@
                                 );
                             },
                             success(r) {
+                                $(".loader").hide();
                                 _this.getPacientes();
                                 _this.cancela();
                             },
                             error(x) {
+                                $(".loader").hide();
                                 console.log(`Erro: ${x}`);
                             },
                         });
+                        $(".loader").show();
                     }
                 },
                 exclui() {
