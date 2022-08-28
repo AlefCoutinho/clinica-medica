@@ -42,7 +42,7 @@
                             <input type="password" id="senha2" class="validate" v-model.trim.required="credencial.repSenha" placeholder="Repeat password">
                         </div>
     
-                        <div class="input-field col s12">
+                        <div class="input-field col s12" style="text-align: center;">
                             <button class="btn" v-on:click="salva()">Cadastrar</button>
                             <button class="btn orange" v-on:click="cancela()" v-if="verificaUser"> Cancelar</button>
                             <button class="btn red" v-on:click="exclui()" v-if="verificaUser">Excluir</button>

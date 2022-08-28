@@ -224,3 +224,20 @@ h1{
     
   }
 }
+
+#titulo_area{
+    padding: 20px;
+    display: block;
+    
+    border-style: none;  
+}
+
+#text_area{
+    padding: 20px;
+    border-style: ridge;
+    border-radius:5%;
+    display: inline;
+    background-color: #004d40;
+    color:white;
+
+}
