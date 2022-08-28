@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/front/css/nav-bar.css">
     
 </head>
 
@@ -18,7 +19,7 @@
             {{header}}
         </div>
 
-        <section>
+        <section class="conteudo">
             <div class="container row">
                 <h1>Cadastro de Medicamento</h1>
     
@@ -261,13 +262,16 @@
                                 );
                             },
                             success(r) {
+                                $(".loader").hide()
                                 _this.getMedicamentos();
                                 _this.cancela();
                             },
                             error(x) {
+                                $(".loader").hide()
                                 console.log(`Erro: ${x}`);
                             },
                         });
+                        $(".loader").show()
                     }
                 },
                 exclui() {
@@ -287,11 +291,14 @@
                             success(r) {
                                 _this.getMedicamentos();
                                 _this.cancela();
+                                $(".loader").hide();
                             },
                             error(x) {
                                 console.log(`Erro: ${x}`);
+                                $(".loader").hide();
                             },
                         });
+                        $(".loader").show();
                     }
                 },
 
@@ -301,6 +308,7 @@
 
         
     </script>
+     <script src="/front/js/mobileNavBar.js"></script>
 
 </body>
 

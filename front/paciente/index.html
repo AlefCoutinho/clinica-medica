@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/front/css/nav-bar.css">
+
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         <div class="header">
             {{header()}}
         </div>
-        <section>
+        <section class="conteudo">
             <div class="container row">
                 <h1>Cadastro de Paciente</h1>
                 
@@ -127,6 +129,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/scripts.js"></script>
+    
     <script>
         var vapp = new Vue({
             el: "#app",
@@ -234,13 +237,16 @@
                                 );
                             },
                             success(r) {
+                                $(".loader").hide();
                                 _this.getPacientes();
                                 _this.cancela();
                             },
                             error(x) {
+                                $(".loader").hide();
                                 console.log(`Erro: ${x}`);
                             },
                         });
+                        $(".loader").show();
                     }
                 },
                 exclui() {
@@ -272,6 +278,7 @@
         });
 
     </script>
+    <script src="../js/mobileNavBar.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,7 @@
+.vscode
+target
+
+*.rar
+*.zip
+*.7z
+*.exe

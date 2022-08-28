@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/front/css/nav-bar.css">
 </head>
 
 <body>
@@ -18,8 +19,8 @@
             {{header}}
         </div>
 
-        <section>
-            <div class="container row">
+        <section class="conteudo  light-blue lighten-5" >
+            <div class="container row" style="text-align: center">
                 <h1>Cadastro de Médico</h1>
                 
                 <div class="error">
@@ -32,7 +33,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input placeholder="Digite aqui" id="nome" type="text" class="validate" v-model.trim="medico.nome">
-                            <label for="nome">Nome <span style="color:red">*</span></label>
+                            <label for="nome">Nome do Médico <span style="color:red">*</span></label>
                         </div>
                         <div class="input-field col s6">
                             <input placeholder="Digite aqui" id="data_nascimento" type="date" class="validate"
@@ -42,7 +43,7 @@
                         <div class="input-field col s6">
                             <input placeholder="Digite aqui" id="cpf" type="text" maxlength="11" class="validate"
                                 v-model.trim="medico.cpf">
-                            <label for=" cpf">CPF <span style="color:red">*</span></label>
+                            <label for=" cpf">CPF<span style="color:red">*</span></label>
                         </div>
                         <div class="input-field col s4">
                             <input text-area placeholder="Digite aqui" id="registro_crm" type="text" line class="validate"
@@ -52,7 +53,7 @@
                         <div class="input-field col s4">
                             <input placeholder="Digite aqui" id="especializacao" type="text" line class="validate"
                                 v-model.trim="medico.especializacao">
-                            <label for="especializacao"> especializacao <span style="color:red">*</span> </label>
+                            <label for="especializacao">Especialização<span style="color:red">*</span> </label>
                         </div>
                         <div class="input-field col s4">
                             <input placeholder="Digite aqui" id="unidade_trabalho" type="text" class="validate"
@@ -93,6 +94,8 @@
                 </div>
             </div>
         </section>
+        
+
         <div class="footer">
             {{footer}}
         </div>
@@ -212,11 +215,14 @@
                             success(r) {
                                 _this.getMedicos();
                                 _this.cancela();
+                                $(".loader").hide();
                             },
                             error(x) {
                                 console.log(`Erro: ${x}`);
+                                $(".loader").hide();
                             },
                         });
+                        $(".loader").show();
                     }
                     
                 },
@@ -235,13 +241,16 @@
                                 );
                             },
                             success(r) {
+                                $(".loader").hide();
                                 _this.getMedicos();
                                 _this.cancela();
                             },
                             error(x) {
+                                $(".loader").hide();
                                 console.log(`Erro: ${x}`);
                             },
                         });
+                        $(".loader").show();
                     }
                 },
 
@@ -249,6 +258,7 @@
         });
 
     </script>
+    <script src="/front/js/mobileNavBar.js"></script>
 
 </body>
 

@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>CADASTRO DE PACIENTE</title>
+    <title>Área de Cadastro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="/front/css/style.css">
+    <link rel="stylesheet" href="/front/css/nav-bar.css">
 </head>
 
 <body>
@@ -17,33 +18,51 @@
             {{header()}}
         </div>
 
-        <main>
-            <div >
-                <div>
-                    <div class="container">
-                        <div>
-                            <ul class="collection with-header collection-item deep-orange lighten-3">
-                                <li class="collection-header deep-orange lighten-1">
-                                    <h4>REALIZAR CADASTRO</h4>
-                                </li>
-                                <li class="collection-item">
-                                    <div>Medicamento<a href="/front/medicamento/" class="secondary-content">
-                                        <i class="material-icons">Cadastrar</i></a></div>
-                                </li>
-                                <li class="collection-item deep-orange lighten-1">
-                                    <div>Medico<a href="/front/medico/" class="secondary-content"><i
-                                                class="material-icons">Cadastrar</i></a></div>
-                                </li>
-                                <li class="collection-item">
-                                    <div>Paciente<a href="/front/paciente/" class="secondary-content"><i
-                                                class="material-icons">Cadastrar</i></a></div>
-                                </li>
-                            </ul>
-                        </div>
+        <div class="row">
+            <h1 id="titulo_area" ><p id="text_area">Área de Cadastro</p> </h1>
+
+            <div class="col s4 ">
+                <div class="card teal darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title" style="text-align: center; font-weight: bold;">Medicamento</span>
+                        <p> Acessando essa funcionalidade será possível efetuar o cadastro de medicamentos utilizados.</p>
+                    </div>
+                    <div class="card-action" style="text-align:center">
+                        <a href="/front/medicamento/">
+                            <p class="material-icons medium" style="text-align:center"> add_circle </p>
+                        </a>
                     </div>
                 </div>
             </div>
-        </main>
+            <div class="col s4">
+                <div class="card teal darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title" style="text-align: center; font-weight: bold;">Médico</span>
+                        <p> Acessando essa funcionalidade será possível efetuar o cadastro dos médicos envolvidos com o
+                            sistema.</p>
+                    </div>
+                    <div class="card-action" style="text-align:center">
+                        <a href="/front/medico/">
+                            <p class="material-icons medium" style="text-align:center"> add_circle </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card teal darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title" style="text-align: center; font-weight: bold;">Paciente</span>
+                        <p> Acessando essa funcionalidade será possível efetuar o cadastro dos Pacientes envolvidos com o
+                            sistema.</p>
+                    </div>
+                    <div class="card-action" style="text-align:center">
+                        <a href="/front/paciente/">
+                            <p class="material-icons Medium" style="text-align:center"> add_circle </p>
+                        </a>
+                    </div>
+                </div>
+            </div </div>
+        </div>
 
         <div class="footer">
             {{footer()}}
@@ -59,7 +78,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="front/js/scripts.js"></script>
+    <script src="/front/js/scripts.js"></script>
+
     <script>
         var vapp = new Vue({
             el: "#app",
@@ -164,6 +184,8 @@
             }
         });
     </script>
+
+    <script src="/front/js/mobileNavBar.js"></script>
 
 </body>
 
