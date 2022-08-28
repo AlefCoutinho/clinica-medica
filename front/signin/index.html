@@ -42,7 +42,7 @@
                     </div>
                     <div class="input-field col s12">
                         <button class="btn" v-on:click="getUsuarioLogin()">Acessar</button>
-                        <a href="/front/signup"  class="btn red">Cadastrar</a>
+                        <a href="/front/signup"  class="btn orange">Cadastrar</a>
                     </div>
                 </div>
             </div>
@@ -79,8 +79,9 @@
                     let _this = this;
                     let usuarios = [];
                     _this.erro = [];
+                    
                     _this.autenticacaoForm();
-
+                    
                     //requisição do tipo GET para recuprar as entidades
                     //envia token no header para autenticação
                     $.ajax({
@@ -95,11 +96,19 @@
                             }else{
                                 _this.erro.push("Usuário ou senha incorreta")
                             } 
+                            $(".loader").hide()
                         },
                         error(x) {
+                            if(x.status === 0){
+                                _this.erro = [];
+                                _this.erro.push("Falha na autenticação, tente novamente mais tarde !!")
+                            }
                             console.log(`Erro: ${x}`);
+                            $(".loader").hide()
                         },
+                        
                     });
+                    $(".loader").show()
                 },
                 autenticar() {
                     let _this = this;

@@ -38,7 +38,7 @@
                             <input type="password" id="senha" class="validate"  v-model.trim.required="credencial.senha" placeholder="password">
                         </div>
                         <div class="input-field">
-                            <label for="senha2">Repitir Senha</label>
+                            <label for="senha2">Repetir Senha</label>
                             <input type="password" id="senha2" class="validate" v-model.trim.required="credencial.repSenha" placeholder="Repeat password">
                         </div>
     
@@ -59,22 +59,6 @@
                 </div>
             </div>
 
-
-            <!-- <table>
-                <thead>
-                    <tr>
-                        <th style="width: 50%">Nome</th>
-                        <th>senha</th>
-
-                </thead>
-                <tbody>
-                    <tr v-for="(t, index) in usuarios" v-on:click="selecionaUsuario(t)" style="cursor: pointer">
-                        <td style="width:30%">{{t.nome}}</td>
-                        <td style="width:23%">{{t.senha}}</td>
-
-                    </tr>
-                </tbody>
-            </table> -->
         </section>
 
 
@@ -195,9 +179,12 @@
                             error(x) {
                                 _this.erros.push(x)
                                 console.log(`Erro: ${x}`);
+                                $(".loader").hide()
                             },
                         });
+                        $(".loader").show()
                     }
+                    
                     
                 },
                 exclui() {
@@ -215,13 +202,17 @@
                                 );
                             },
                             success(r) {
+                                $(".loader").hide();
                                 _this.getUsuarios();
                                 _this.cancela();
                             },
                             error(x) {
+                                $(".loader").hide();
                                 console.log(`Erro: ${x}`);
                             },
                         });
+                        $(".loader").show();
+                       
                     }
                 },
 
