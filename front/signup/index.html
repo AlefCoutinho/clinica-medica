@@ -100,7 +100,7 @@
             methods: {
                 deslogar(){
                     sessionStorage.removeItem("token");
-                    window.location.href = "/"
+                    window.location.href = "/front/signin"
                 },
                 verifLogin(){
                     if(sessionStorage.getItem("token") == null){

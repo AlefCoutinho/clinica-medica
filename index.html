@@ -17,56 +17,56 @@
         <div class="header">
             {{header()}}
         </div>
-
-        <div class="row">
-            <h1 id="titulo_area">
-                <p id="text_area">Área de Cadastro</p>
-            </h1>
-
-            <div class="col s4">
-                <div class="card teal darken-4">
-                    <div class="card-content white-text">
-                        <span class="card-title" style="text-align: center; font-weight: bold;">Medicamento</span>
-                        <p> Acessando essa funcionalidade será possível efetuar o cadastro de medicamentos utilizados.
-                        </p>
+        
+        <section class="conteudo">
+            <div class="row">
+                <h1 id="titulo_area" ><p id="text_area">Área de Cadastro</p> </h1>
+    
+                <div class="col l4 m12 s12">
+                    <div class="card teal darken-4">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="text-align: center; font-weight: bold;">Medicamento</span>
+                            <p> Acessando essa funcionalidade será possível efetuar o cadastro de medicamentos utilizados.</p>
+                        </div>
+                        <div class="card-action" style="text-align:center">
+                            <a href="/front/medicamento/">
+                                <p class="material-icons medium" style="text-align:center"> add_circle </p>
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-action" style="text-align:center">
-                        <a href="/front/medicamento/">
-                            <p class="material-icons medium" style="text-align:center"> add_circle </p>
-                        </a>
+                </div>
+                <div class="col l4 m12 s12">
+                    <div class="card teal darken-4">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="text-align: center; font-weight: bold;">Médico</span>
+                            <p> Acessando essa funcionalidade será possível efetuar o cadastro dos médicos envolvidos com o
+                                sistema.</p>
+                        </div>
+                        <div class="card-action" style="text-align:center">
+                            <a href="/front/medico/">
+                                <p class="material-icons medium" style="text-align:center"> add_circle </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col l4 m12 s12">
+                    <div class="card teal darken-4">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="text-align: center; font-weight: bold;">Paciente</span>
+                            <p> Acessando essa funcionalidade será possível efetuar o cadastro dos Pacientes envolvidos com o
+                                sistema.</p>
+                        </div>
+                        <div class="card-action" style="text-align:center">
+                            <a href="/front/paciente/">
+                                <p class="material-icons Medium" style="text-align:center"> add_circle </p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col s4">
-                <div class="card teal darken-4">
-                    <div class="card-content white-text">
-                        <span class="card-title" style="text-align: center; font-weight: bold;">Médico</span>
-                        <p> Acessando essa funcionalidade será possível efetuar o cadastro dos médicos envolvidos com o
-                            sistema.</p>
-                    </div>
-                    <div class="card-action" style="text-align:center">
-                        <a href="/front/medico/">
-                            <p class="material-icons medium" style="text-align:center"> add_circle </p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s4">
-                <div class="card teal darken-4">
-                    <div class="card-content white-text">
-                        <span class="card-title" style="text-align: center; font-weight: bold;">Paciente</span>
-                        <p> Acessando essa funcionalidade será possível efetuar o cadastro dos Pacientes envolvidos com
-                            o
-                            sistema.</p>
-                    </div>
-                    <div class="card-action" style="text-align:center">
-                        <a href="/front/paciente/">
-                            <p class="material-icons Medium" style="text-align:center"> add_circle </p>
-                        </a>
-                    </div>
-                </div>
-            </div </div>
-        </div>
+        </section>
+
 
         <div class="footer">
             {{footer()}}
@@ -101,6 +101,7 @@
             methods: {
                 deslogar() {
                     sessionStorage.removeItem("token");
+                    window.location.href = "/front/signin"
                 },
                 getPacientes() {
                     let _this = this;
