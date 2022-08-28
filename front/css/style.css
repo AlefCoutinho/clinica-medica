@@ -5,7 +5,9 @@
 }
 
 /* nav bar responsiva */
-
+nav{
+  background-color: #00897b  ;  
+}
 /* BARRA DE ROLAGEM */
 body::-webkit-scrollbar {
   width: 8px; /* width of the entire scrollbar */
@@ -16,7 +18,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #ee6e73;  
+  background-color: #00897b  ;  
   border: 1px solid white;
   /* color of the scroll thumb */
   border-radius: 0 20px 0 20px;       /* roundness of the scroll thumb */
@@ -190,7 +192,7 @@ h1{
   color: white;
   min-width: 200px;
   width: 20%; 
-  background: #ee6e73;
+  background: #00897b  ;
   height: 100px;
   border-radius: 20px ;
   
@@ -199,6 +201,9 @@ h1{
 .userBlockDiv{
   display: inline-block;
   margin: 10px 5px;
+}
+.userBlock:hover{
+  background: rgba(0, 137, 123, 0.865) ;
 }
 
 .userBlock h4{
