@@ -123,21 +123,14 @@ function footer() {
 }
 
 function header() {
-  $('.header').html(`
+  if (sessionStorage.getItem('token') == null) {
+    $('.header').html(`
     <header>
         <nav class="nav-extended grey darken-4">
         <div class="nav-wrapper">
             <a href="/" class="center brand-logo"
             ><i class="material-icons">local_hospital</i>ES DEV</a
             >
-            <ul id="nav-mobile" class=" hide-on-med-and-down">
-            <div class="left">
-                <li><a href="/">Pagina Inicial</a></li>
-                <li><a href="/front/medicamento/">Medicamento</a></li>
-                <li><a href="/front/medico/">Medico</a></li>
-                <li><a href="/front/paciente/">Paciente</a></li>
-            </div>
-            </ul>
             <ul id="nav-mobile" class=" hide-on-small-only">
             <div class="right">
                 <li>
@@ -147,8 +140,41 @@ function header() {
                     ><i class="material-icons left">check</i>Entrar</a
                 >
                 </li>
+            </ul>
+        </div>
+        <div class="hide-on-med-and-up	 nav-content">
+            <ul class="tabs tabs-transparent">
+                <li>
+                    <a
+                    href="/front/signin/"
+                    class="waves-effect waves-light btn green"
+                    ><i class="material-icons left">check</i>Entrar</a
+                    >
+                </li>
+                </ul>
+        </nav>
+    </header>
+    `)
+  } else {
+    $('.header').html(`
+    <header>
+        <nav class="nav-extended grey darken-4">
+        <div class="nav-wrapper">
+            <a href="/" class="center brand-logo"
+            ><i class="material-icons">local_hospital</i>ES DEV</a
+            >
+            <ul id="nav-mobile" class=" hide-on-med-and-down">
+            <div class="left">
+                <li><a href="/">Realizar Cadastros</a></li>
+                <li><a href="/front/medicamento/">Medicamento</a></li>
+                <li><a href="/front/medico/">Medico</a></li>
+                <li><a href="/front/paciente/">Paciente</a></li>
+            </div>
+            </ul>
+            <ul id="nav-mobile" class=" hide-on-small-only">
+            <div class="right">
                 <li v-on:click="deslogar()">
-                <a class="waves-effect waves-light btn red"
+                <a href="/front/signin/" class="waves-effect waves-light btn red"
                     ><i class="material-icons left">block</i>Sair</a
                 >
                 </li>
@@ -165,15 +191,8 @@ function header() {
         </div>
         <div class="hide-on-med-and-up	 nav-content">
             <ul class="tabs tabs-transparent">
-                <li>
-                    <a
-                    href="/front/signin/"
-                    class="waves-effect waves-light btn green"
-                    ><i class="material-icons left">check</i>Entrar</a
-                    >
-                </li>
                 <li v-on:click="deslogar()">
-                    <a class="waves-effect waves-light btn red"
+                    <a href="/front/signin/" class="waves-effect waves-light btn red"
                     ><i class="material-icons left">block</i>Sair</a
                     >
                 </li>
@@ -181,4 +200,5 @@ function header() {
         </nav>
     </header>
     `)
+  }
 }
