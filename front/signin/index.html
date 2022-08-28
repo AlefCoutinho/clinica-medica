@@ -87,9 +87,10 @@
                         url: "http://localhost:8080/usuario",
                         method: "GET",
                         success(r) {
-                            const vereficaUser = r.find( element =>{
-                                return element.nome === _this.credencial.nome && _this.credencial.senha === element.senha
-                            })
+                            const vereficaUser = r.find( element =>
+                                element.nome === _this.credencial.nome && _this.credencial.senha === element.senha
+                            )
+                            console.log(r)
                             if(vereficaUser){
                                 _this.autenticar()
                             }else{
