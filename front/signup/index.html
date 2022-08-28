@@ -173,8 +173,9 @@
                                window.location.href = "/front/signin/";
                             },
                             error(x) {
-                                _this.erros.push(x)
-                                console.log(`Erro: ${x}`);
+                                if(x.status === 500){
+                                    _this.erros.push("usuário inválido !")
+                                }
                                 $(".loader").hide()
                             },
                         });
