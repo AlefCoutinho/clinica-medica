@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="/front/css/nav-bar.css">
-    
+
 </head>
 
 <body>
@@ -19,16 +19,16 @@
             {{header}}
         </div>
 
-        <section class="conteudo">
-            <div class="container row teal lighten-5" >
-                <h1>Cadastro de Medicamento</h1>
-    
+        <section class="conteudo teal lighten-5">
+            <div class="container row" style="text-align: center">
+                <h3 class="black-text">Cadastro de Medicamento</h3>
+
                 <div class="error">
                     <ul>
                         <li v-for="er in erros">{{er}}</li>
                     </ul>
                 </div>
-    
+
                 <div class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
@@ -37,8 +37,8 @@
                             <label for="nome">Nome do Medicamento <span style="color:red">*</span></label>
                         </div>
                         <div class="input-field col s4">
-                            <input placeholder="Digite aqui" id="codigo_barras" type="text" maxlength="12" class="validate"
-                                v-model.trim="medicamento.codigo_barras">
+                            <input placeholder="Digite aqui" id="codigo_barras" type="text" maxlength="12"
+                                class="validate" v-model.trim="medicamento.codigo_barras">
                             <label for="codigo_barras">Código de Barras</label>
                         </div>
                         <div class="input-field col s4">
@@ -101,7 +101,7 @@
                                 v-model.trim="medicamento.contra_indicacao">
                             <label for="contra_indicacao">Contra Indicacao <span style="color:red">*</span></label>
                         </div>
-                        <div>
+                        <div style="text-align:left">
                             <!-- private boolean ativo; // ATIVADO OU DESATIVADO NO PEDIDO -->
                             <!-- private boolean prescricao_medica; -->
                             <label>
@@ -109,56 +109,70 @@
                                 <span>Produto está ativo?</span>
                             </label>
                         </div>
-                        <div>
+                        <div style="text-align:left">
                             <label>
                                 <input id="prescricao_medica" type="checkbox" v-model="medicamento.prescricao_medica" />
                                 <span>Precisa Prescrição Médica</span>
                             </label>
                         </div>
                         <div id="batata" class="pulse">
-    
-    
-    
+
+
+
                             <div class="input-field col s12">
                                 <button class="btn z-depth-1 blue darken-4" v-on:click="salva()">Salvar</button>
                                 <button class="btn  z-depth-1 orange darken-4" v-on:click="cancela()">
                                     Cancelar
                                 </button>
                                 <button class="btn z-depth-1  red darken-4" v-on:click="exclui()">Excluir</button>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="col s12">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 50%">Nome</th>
-                                <th>Lote</th>
-                                <th>Prescrição Médica</th>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(t, index) in medicamentos" v-on:click="selecionaMedicamento(t)"
-                                style="cursor: pointer">
-                                <td style="width:40%">{{t.nome}}</td>
-                                <td style="width:30%">{{t.lote}}</td>
-                                <td style="width:30%">{{t.prescricao_medica}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <section class="conteudo">
+                        <div class="row">
+                            <!-- <div class="col l4 m12 s12"> -->
+                            <div class="card teal">
+                                <div class="card-content white-text ">
+                                    <span class="card-title"
+                                        style="text-align: center; font-weight: bold;">Medicamentos Cadastrados</span>
+                                    <table class="bluez-depth-5">
+                                        <thead>
+                                            <tr class="teal darken-4">
+                                                <th style="width: 50%">Nome</th>
+                                                <th>Lote</th>
+                                                <th>Prescrição Médica</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(t, index) in medicamentos" v-on:click="selecionaMedicamento(t)"
+                                                style="cursor: pointer" class=" teal lighten-5 black-text">
+                                                <td style="width:40%">{{t.nome}}</td>
+                                                <td style="width:30%">{{t.lote}}</td>
+                                                <td style="width:30%">{{t.prescricao_medica}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <!-- </div> -->
+
+                        </div>
+                    </section>
+
                 </div>
             </div>
-        </section>
 
-        <div class="footer">
-            {{footer}}
-        </div>
+            <div class="footer">
+                {{footer}}
+            </div>
 
-        <div class="loader">
-            {{loader}}
-        </div>
+            <div class="loader">
+                {{loader}}
+            </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -185,25 +199,25 @@
                 this.getMedicamentos();
             },
             methods: {
-                deslogar(){
+                deslogar() {
                     sessionStorage.removeItem("token");
                     window.location.href = "/front/signin"
                 },
-                validarForm(){
+                validarForm() {
                     let _this = this;
 
-                    (_this.medicamento.nome == null || _this.medicamento.nome == "")? _this.erros.push("É necessário preencher o Nome"): ""; 
-                    (_this.medicamento.categoria == null || _this.medicamento.categoria == "" )? _this.erros.push("Informe a categoria") : ""; 
-                    (_this.medicamento.contra_indicacao == null || _this.medicamento.contra_indicacao == "" )? _this.erros.push("Informe a contra indicação") : ""; 
-                    (_this.medicamento.tipo_medicamento == null || _this.medicamento.tipo_medicamento == "" )? _this.erros.push("Informe o tipo de medicamento") : ""; 
-                    ( !_this.dataDeValidade() )? _this.erros.push("Informe uma data válida") : ""; 
+                    (_this.medicamento.nome == null || _this.medicamento.nome == "") ? _this.erros.push("É necessário preencher o Nome") : "";
+                    (_this.medicamento.categoria == null || _this.medicamento.categoria == "") ? _this.erros.push("Informe a categoria") : "";
+                    (_this.medicamento.contra_indicacao == null || _this.medicamento.contra_indicacao == "") ? _this.erros.push("Informe a contra indicação") : "";
+                    (_this.medicamento.tipo_medicamento == null || _this.medicamento.tipo_medicamento == "") ? _this.erros.push("Informe o tipo de medicamento") : "";
+                    (!_this.dataDeValidade()) ? _this.erros.push("Informe uma data válida") : "";
 
-                
+
                 },
 
-                dataDeValidade(){
-                    let _this = this;                    
-                    if((_this.medicamento.data_validade > dataAtual() && (_this.medicamento.data_validade != ""  || _this.medicamento.data_validade != undefined))){
+                dataDeValidade() {
+                    let _this = this;
+                    if ((_this.medicamento.data_validade > dataAtual() && (_this.medicamento.data_validade != "" || _this.medicamento.data_validade != undefined))) {
                         return true;
                     }
                     return false;
@@ -246,7 +260,7 @@
                     _this.erros = [];
                     _this.validarForm();
                     console.log(_this.medicamento)
-                    if(_this.erros.length < 1){
+                    if (_this.erros.length < 1) {
                         //requisição do tipo POST para inserir ou atualizar uma entidade
                         //se houver id então atualiza -> isso é verificado no backend
                         //envia token no header para autenticação
@@ -303,12 +317,12 @@
                 },
 
             }
-            
+
         });
 
-        
+
     </script>
-     <script src="/front/js/mobileNavBar.js"></script>
+    <script src="/front/js/mobileNavBar.js"></script>
 
 </body>
 

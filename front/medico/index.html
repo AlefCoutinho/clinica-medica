@@ -21,7 +21,7 @@
 
         <section class="conteudo  teal lighten-5" >
             <div class="container row" style="text-align: center">
-                <h1 class="black-text">Cadastro de Médico</h1>
+                <h3 class="black-text">Cadastro de Médico</h3>
                 
                 <div class="error">
                     <ul>
@@ -60,9 +60,7 @@
                                 v-model.trim="medico.unidade_trabalho">
                             <label for="unidade_trabalho">Unidade Trabalho <span style="color:red">*</span></label>
                         </div>
-    
-    
-    
+          
                         <div class="input-field col s12">
                             <button class="btn blue darken-4" v-on:click="salva()">Salvar</button>
                             <button class="btn orange darken-4" v-on:click="cancela()">
