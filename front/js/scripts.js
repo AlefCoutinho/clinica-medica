@@ -5,6 +5,7 @@ function verificaAutenticacao(){
     }
 }
 
+
 function domReady(cb) {
     (function checkDomReady() {
       var state = document.readyState;
@@ -133,12 +134,15 @@ function header(){
                     <li><a href="/front/medico/">Medico</a></li>
                     <li><a href="/front/paciente/">Paciente</a></li>
                     <li>
-                        <a href="/front/signin/" class="waves-effect waves-light btn green">
-                            <i class="material-icons left">check</i>Entrar
+                        <a href="/front/signin/" class="waves-effect btn green">
+                            <i class="material-icons left">check</i>Sign In
+                        </a>
+                        <a href="/front/signin/" class="waves-effect btn orange">
+                            <i class="material-icons left">check</i>Sign Up
                         </a>
                     </li>
                     <li v-on:click="deslogar()">
-                        <a class="waves-effect waves-light btn red">
+                        <a class="waves-effect btn red">
                             <i class="material-icons left">block</i>Sair
                         </a>
                     </li>

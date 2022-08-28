@@ -1,11 +1,4 @@
-/* barra do menu */
-.barra-menu{
-    z-index: 99999;
-    position: fixed;
-    top: 0;
-    width: 100vw;   
-    height: 80px; 
-}
+
 
 a{
     font-weight: 500;
@@ -48,7 +41,7 @@ nav{
 
 .nav-list li{
  letter-spacing:  3px;
- margin-right: 32px;;
+ /* margin-right: 32px;; */
 }
 .mobile-menu{
     display: none;
@@ -65,6 +58,15 @@ nav{
 
 
 @media (max-width:1200px) {
+    /* barra do menu */
+    .barra-menu{
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        width: 100vw;   
+        height: 80px; 
+    }
+
     body{
         overflow-x: hidden;
     }
