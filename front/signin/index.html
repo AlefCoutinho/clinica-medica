@@ -94,7 +94,6 @@
                                     }
                                 }
                             });
-
                         },
                         error(x) {
                             console.log(`Erro: ${x}`);
@@ -115,7 +114,6 @@
                             url: "http://localhost:8080/login",
                             method: "POST",
                             data: { usuario: "usuario", senha: 1234 },
-
                         }).done((r) => {
                             //salva o token na storage
                             sessionStorage.setItem("token", r);
