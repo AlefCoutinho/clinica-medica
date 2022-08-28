@@ -1,26 +1,24 @@
-
-function verificaAutenticacao(){
-    if(sessionStorage.getItem("token") == null){
-        window.location.href = "/front/signin/";
-    }
+function verificaAutenticacao() {
+  if (sessionStorage.getItem('token') == null) {
+    window.location.href = '/front/signin/'
+  }
 }
 
-
 function domReady(cb) {
-    (function checkDomReady() {
-      var state = document.readyState;
-      if (state == 'loaded' || state == 'complete') cb();
-      else setTimeout(checkDomReady, 200);
-    })();
-  };
-  
-  domReady(function() {
-    $(".loader").hide();
-  });
+  ;(function checkDomReady() {
+    var state = document.readyState
+    if (state == 'loaded' || state == 'complete') cb()
+    else setTimeout(checkDomReady, 200)
+  })()
+}
+
+domReady(function () {
+  $('.loader').hide()
+})
 
 //   função loader
-function loader(){
-    $(".loader").html(`
+function loader() {
+  $('.loader').html(`
     <div class="radar-spinner">
         <div class="circle">
             <div class="circle-inner-container">
@@ -46,23 +44,22 @@ function loader(){
             </div>
         </div>
     </div>
-    `);
-} 
+    `)
+}
 
 // VERIFICAÇÃO DA DATA VÁLIDA
 // FUNções de data da compra
-const dataAtual = () =>{
-    var data = new Date();
-    var dia = String(data.getDate()).padStart(2, '0');
-    var mes = String(data.getMonth() + 1).padStart(2, '0');
-    var ano = data.getFullYear();
-    return `${ano}-${mes}-${dia}`;
-    
+const dataAtual = () => {
+  var data = new Date()
+  var dia = String(data.getDate()).padStart(2, '0')
+  var mes = String(data.getMonth() + 1).padStart(2, '0')
+  var ano = data.getFullYear()
+  return `${ano}-${mes}-${dia}`
 }
 
 // função Header
-function footer(){
-        $(".footer").html(`
+function footer() {
+  $('.footer').html(`
             <footer class="page-footer grey darken-4">
             <div class="center container">
                 <div class="row">
@@ -115,8 +112,32 @@ function footer(){
         `)
 }
 
-function header(){
-    $(".header").html(`
+function header() {
+  if (sessionStorage.getItem('token') == null) {
+    $('.header').html(`
+    <section class="barra-menu">
+        <header>
+            <nav>
+                <a href="/" class="logo"><i class="material-icons">add_to_queue</i>ES DEV</a>
+
+                <div class="mobile-menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+
+                <ul class="nav-list">
+                        <a href="/front/signin/" class="waves-effect btn green">
+                            Logar
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </section>
+    `)
+  } else {
+    $('.header').html(`
     <section class="barra-menu">
         <header>
             <nav>
@@ -134,9 +155,6 @@ function header(){
                     <li><a href="/front/medico/">Medico</a></li>
                     <li><a href="/front/paciente/">Paciente</a></li>
                     <li>
-                        <a href="/front/signin/" class="waves-effect btn green">
-                            Logar
-                        </a>
                         <a href="/front/signup/" class="waves-effect btn orange">
                             Cadastrar
                         </a>
@@ -151,4 +169,5 @@ function header(){
         </header>
     </section>
     `)
+  }
 }
