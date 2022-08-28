@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessar Sistema</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav-bar.css">
+   
 </head>
+
 <body>
     <div id="app">
 
         <div class="header">
             {{header()}}
         </div>
-        <section class="posicao-section">
+        <section class="posicao-section conteudo">
             <div class="container ">
                 <div class="form-login">
                     <h2>Login</h2>
@@ -27,31 +31,32 @@
                     </div>
                     <div class="input-field">
                         <label for="usuario">Usuário</label>
-                        <input type="text" id="usuario" class="validate" v-model.trim.required="credencial.usuario" placeholder="login">
+                        <input type="text" id="usuario" class="validate" v-model.trim.required="credencial.nome"
+                            placeholder="login">
                     </div>
-        
+
                     <div class="input-field">
                         <label for="senha">Password</label>
-                        <input type="password" id="senha" class="validate" v-model="credencial.senha" placeholder="password">
+                        <input type="password" id="senha" class="validate" v-model.trim.required="credencial.senha"
+                            placeholder="password">
                     </div>
                     <div class="input-field col s12">
-                        <button class="btn" v-on:click="autenticar()">Acessar</button>
-                        
+                        <button class="btn" v-on:click="getUsuarioLogin()">Acessar</button>
+                        <a href="/front/signup"  class="btn red">Cadastrar</a>
                     </div>
-                </div>    
+                </div>
             </div>
         </section>
         <div class="footer">
             {{footer()}}
         </div>
-        
+
 
         <div class="loader">
             {{loader()}}
         </div>
-    
-    </div>
 
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -59,36 +64,65 @@
     <script>
         var vapp = new Vue({
             el: "#app",
-            data(){
-                return{
+            data() {
+                return {
                     credencial: {},
+                    usuarios: [],
                     erro: [],
                     loader: loader(),
                     footer: footer(),
                     header: header(),
                 }
-                
             },
             methods: {
-                autenticar(){
+                getUsuarioLogin() {
                     let _this = this;
-                    
+                    let usuarios = [];
+                    _this.erro = [];
+                    _this.autenticacaoForm();
+
+                    //requisição do tipo GET para recuprar as entidades
+                    //envia token no header para autenticação
+                    $.ajax({
+                        url: "http://localhost:8080/usuario",
+                        method: "GET",
+                        success(r) {
+                            const vereficaUser = r.find( element =>{
+                                return element.nome === _this.credencial.nome && _this.credencial.senha === element.senha
+                            })
+                            if(vereficaUser){
+                                _this.autenticar()
+                            }else{
+                                _this.erro.push("Usuário ou senha incorreta")
+                            } 
+                        },
+                        error(x) {
+                            console.log(`Erro: ${x}`);
+                        },
+                    });
+                },
+                autenticar() {
+                    let _this = this;
+                    _this.getUsuarioLogin()
+                    // console.log(_this.credencialUsuario);
+
                     //se houver token executa a consulta diretamente
                     if (sessionStorage.getItem("token") == null) {
-                        console.log("passou aqui")
-                        _this.autenticacaoForm();
+                        // _this.getUsuarioLogin();
+                        
                         //envia uma consulta usando POST com usuário e senha para login
                         $.ajax({
                             url: "http://localhost:8080/login",
                             method: "POST",
-                            data: _this.credencial,
-    
+                            data: { usuario: "usuario", senha: 1234 },
                         }).done((r) => {
                             //salva o token na storage
                             sessionStorage.setItem("token", r);
                             window.location.href = "/"
                         }).fail((erro)=>{
-    
+                            if(erro.status === 0){
+                                _this.erro.push("Falha na conexão, tente novamente mais tarde!")
+                            }
                             if(erro.status >= 400) {
                                 _this.erro.push("Usuário ou senha incorreta")
                             }
@@ -98,36 +132,31 @@
                         window.location.href = "/"
                     }
                 },
-                deslogar(){
+                deslogar() {
                     sessionStorage.removeItem("token");
                     window.location.href = "/"
                 },
-                autenticacaoForm(){
+                autenticacaoForm() {
                     let _this = this;
-    
-                    if(_this.credencial.usuario == "" || _this.credencial.usuario == undefined ||
-                    _this.credencial.senha == "" || _this.credencial.senha == undefined
-                    ){
-                        
+
+                    if (_this.credencial.nome == "" || _this.credencial.nome == undefined ||
+                        _this.credencial.senha == "" || _this.credencial.senha == undefined
+                    ) {
+
                         _this.limpar();
                         _this.erro.push("Os compos não podem estar vazios")
                     }
                 },
-                limpar(){
+                limpar() {
                     let _this = this;
                     _this.credencial = {};
                     _this.erro = []
                 }
-    
+
             }
         })
     </script>
+    <script src="../js/mobileNavBar.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
