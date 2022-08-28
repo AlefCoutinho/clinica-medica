@@ -215,11 +215,14 @@
                             success(r) {
                                 _this.getMedicos();
                                 _this.cancela();
+                                $(".loader").hide();
                             },
                             error(x) {
                                 console.log(`Erro: ${x}`);
+                                $(".loader").hide();
                             },
                         });
+                        $(".loader").show();
                     }
                     
                 },
@@ -238,13 +241,16 @@
                                 );
                             },
                             success(r) {
+                                $(".loader").hide();
                                 _this.getMedicos();
                                 _this.cancela();
                             },
                             error(x) {
+                                $(".loader").hide();
                                 console.log(`Erro: ${x}`);
                             },
                         });
+                        $(".loader").show();
                     }
                 },
 
