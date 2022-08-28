@@ -78,7 +78,7 @@ nav{
         width: 60%; /*vw serve para setar o width*/
         height: 100vh; /*vh serve para setar height*/
         /* background-color: #23232e; */
-        background-color: #ee6e73;
+        background-color: #00897b  ;
         flex-direction: column;
         align-items: center;
         /* justify-content: space-around; */
