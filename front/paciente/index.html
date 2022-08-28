@@ -69,14 +69,14 @@
                                 <option value="A+"> A+ </option>
                                 <option value="A-">A-</option>
                                 <option value="B+">B+</option>
-                                <option value="B+">B+</option>
-                                <option value="B+">B+</option>
+                                <option value="B+">B-</option>
+                                <option value="B+">O+</option>
                                 <option value="O-">O-</option>
                                 <option value="AB+">AB+</option>
                                 <option value="AB-">AB-</option>
                             </select>
                         </div>
-    
+
                         <div class="input-field col s12">
                             <input placeholder="Digite aqui" id="doenca" type="text" class="validate"
                                 v-model.trim="paciente.doenca_cronica">
@@ -100,15 +100,17 @@
                                 <th style="width: 10%">Nome</th>
                                 <th>Idade</th>
                                 <th>Alergia</th>
-                                <th>Tipo Sanguíneo </th>
+                                <th>Tipo Sanguíneo</th>
+                                <th>Doença Crônica</th>
                         </thead>
                         <tbody>
     
                             <tr v-for="(t, index) in pacientes" v-on:click="selecionaPaciente(t)" style="cursor: pointer">
                                 <td style="width:30%">{{t.nome}}</td>
-                                <td style="width:23%">{{pegarIdade(t.data_nascimento)}}</td>
-                                <td style="width:23%">{{t.alergia}}</td>
-                                <td style="width:23%">{{t.tipo_sanguineo}}</td>
+                                <td style="width:17%">{{pegarIdade(t.data_nascimento)}}</td>
+                                <td style="width:18%">{{t.alergia}}</td>
+                                <td style="width:17%">{{t.tipo_sanguineo}}</td>
+                                <td style="width:18%">{{t.doenca_cronica}}</td>
                             </tr>
                         </tbody>
                     </table>
