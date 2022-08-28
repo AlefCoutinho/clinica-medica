@@ -241,3 +241,7 @@ h1{
     color:white;
 
 }
+
+.card>.card-content{
+  min-height: 150px;
+}
