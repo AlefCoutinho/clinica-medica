@@ -188,21 +188,25 @@ h1{
   align-items: center;
   justify-content:center;
   color: white;
- 
   min-width: 200px;
   width: 20%; 
   background: #ee6e73;
   height: 100px;
   border-radius: 20px ;
+  
+ 
 }
+.userBlockDiv{
+  display: inline-block;
+  margin: 10px 5px;
+}
+
 .userBlock h4{
   font-size: 18px;
   text-transform: uppercase;
 }
 .userBlock legend{
   font-size: 14px;
-  flex-direction: form-login;
-
 }
 
 .lista-usuarios{

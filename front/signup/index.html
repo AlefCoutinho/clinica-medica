@@ -52,9 +52,11 @@
         </section>
 
         <section v-if="verificaUser" class="container lista-usuarios">
-            <div class="userBlock" v-for="(t, index) in usuarios" v-on:click="selecionaUsuario(t)" style="cursor: pointer">
-                <legend>Usuário:</legend>
-                <h4>{{t.nome}}</h4>
+            <div class="userBlockDiv" v-for="(t, index) in usuarios" v-on:click="selecionaUsuario(t)" style="cursor: pointer">
+                <div class="userBlock">
+                    <legend>Usuário:</legend>
+                    <h4>{{t.nome}}</h4>
+                </div>
             </div>
 
 
