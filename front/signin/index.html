@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/nav-bar.css">
-   
+
 </head>
 
 <body>
@@ -88,9 +88,10 @@
                         url: "http://localhost:8080/usuario",
                         method: "GET",
                         success(r) {
-                            const vereficaUser = r.find( element =>{
-                                return element.nome === _this.credencial.nome && _this.credencial.senha === element.senha
-                            })
+                            const vereficaUser = r.find( element =>
+                                element.nome === _this.credencial.nome && _this.credencial.senha === element.senha
+                            )
+                            console.log(r)
                             if(vereficaUser){
                                 _this.autenticar()
                             }else{
