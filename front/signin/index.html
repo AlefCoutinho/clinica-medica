@@ -29,17 +29,17 @@
                     </div>
                     <div class="input-field">
                         <label for="usuario">Usuário</label>
-                        <input type="text" id="usuario" class="validate" v-model.trim.required="credencial.usuario"
+                        <input type="text" id="usuario" class="validate" v-model.trim.required="credencialUsuario.nome"
                             placeholder="login">
                     </div>
 
                     <div class="input-field">
                         <label for="senha">Password</label>
-                        <input type="password" id="senha" class="validate" v-model="credencial.senha"
+                        <input type="password" id="senha" class="validate" v-model="credencialUsuario.senha"
                             placeholder="password">
                     </div>
                     <div class="input-field col s12">
-                        <button class="btn" v-on:click="autenticar()">Acessar</button>
+                        <button class="btn" v-on:click="getUsuarioLogin()">Acessar</button>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,6 @@
         </div>
 
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -64,7 +63,9 @@
             el: "#app",
             data() {
                 return {
-                    credencial: {},
+                    credencialUsuario: {},
+                    usuarios: [],
+                    credencialAPI: {},
                     erro: [],
                     loader: loader(),
                     footer: footer(),
@@ -72,19 +73,48 @@
                 }
             },
             methods: {
+                getUsuarioLogin() {
+                    let _this = this;
+                    let usuarios = [];
+
+                    //requisição do tipo GET para recuprar as entidades
+                    //envia token no header para autenticação
+                    $.ajax({
+                        url: "http://localhost:8080/usuario",
+                        method: "GET",
+                        success(r) {
+                            usuarios = r;
+                            usuarios.forEach(usuario => {
+                                if (_this.credencialUsuario["nome"] == usuario["nome"]) {
+                                    console.log("usuario correto");
+                                    if (_this.credencialUsuario["senha"] == usuario["senha"]) {
+                                        _this.autenticar();
+                                    } else {
+                                        alert("USUARIO OU SENHA INCORRETA");
+                                    }
+                                }
+                            });
+
+                        },
+                        error(x) {
+                            console.log(`Erro: ${x}`);
+                        },
+                    });
+                },
                 autenticar() {
                     let _this = this;
+                    _this.getUsuarioLogin()
+                    // console.log(_this.credencialUsuario);
 
                     //se houver token executa a consulta diretamente
                     if (sessionStorage.getItem("token") == null) {
-                        console.log("passou aqui");
                         // _this.getUsuarioLogin();
                         _this.autenticacaoForm();
                         //envia uma consulta usando POST com usuário e senha para login
                         $.ajax({
                             url: "http://localhost:8080/login",
                             method: "POST",
-                            data: _this.credencial,
+                            data: { usuario: "usuario", senha: 1234 },
 
                         }).done((r) => {
                             //salva o token na storage
@@ -108,8 +138,8 @@
                 autenticacaoForm() {
                     let _this = this;
 
-                    if (_this.credencial.usuario == "" || _this.credencial.usuario == undefined ||
-                        _this.credencial.senha == "" || _this.credencial.senha == undefined
+                    if (_this.credencialUsuario.nome == "" || _this.credencialUsuario.nome == undefined ||
+                        _this.credencialUsuario.senha == "" || _this.credencialUsuario.senha == undefined
                     ) {
 
                         _this.limpar();
@@ -118,7 +148,7 @@
                 },
                 limpar() {
                     let _this = this;
-                    _this.credencial = {};
+                    _this.credencialUsuario = {};
                     _this.erro = []
                 }
 

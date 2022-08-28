@@ -111,8 +111,8 @@
                 return {
                     paciente: {},
                     pacientes: [],
-                    usuario: [],
-                    usuarios: {},
+                    _usuario: [],
+                    _usuarios: {},
                 };
             },
             mounted() {
@@ -120,38 +120,19 @@
                 this.efetuaLogin();
             },
             methods: {
-                getUsuarioLogin() {
-                    let _this = this;
-                    //requisição do tipo GET para recuprar as entidades
-                    //envia token no header para autenticação
-                    $.ajax({
-                        url: "http://localhost:8080/usuario",
-                        method: "GET",
-                        success(r) {
-                            _this.usuario = r;
-                            console.log(_this.usuario);
-                        },
-                        error(x) {
-                            console.log(`Erro: ${x}`);
-                        },
-                    });
-                },
                 efetuaLogin() {
                     let _this = this;
+                    console.log(_this.getUsuarioLogin());
                     //se houver token executa a consulta diretamente
                     if (sessionStorage.getItem("token") == null) {
                         //envia uma consulta usando POST com usuário e senha para login
                         $.ajax({
                             url: "http://localhost:8080/login",
                             method: "POST",
-                            
                             data: { usuario: "usuario", senha: 1234 },
                         }).done((r) => {
                             //salva o token na storage
-                            console.log("teste");
-                            getUsuarioLogin();
-                            sessionStorage.setItem("token", r);
-                            _this.getUsuarioLogin();
+                            sessionStorage.setItem("token", r);   
                             _this.getPacientes();
                         });
                     } else {
