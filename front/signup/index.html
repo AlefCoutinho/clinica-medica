@@ -83,11 +83,7 @@
             el: "#app",
             data(){
                 return{
-                    credencial: {
-                        nome: '',
-                        senha: '',
-                        repSenha: '',
-                    },
+                    credencial: {},
                     verificaUser: this.verifLogin(),
                     usuarios: [],
                     erros: [],
@@ -164,7 +160,7 @@
                             url: "http://localhost:8080/usuario",
                             method: "POST",
                             contentType: "application/json",
-                            data: JSON.stringify({nome: _this.credencial.nome, senha: _this.credencial.senha}),
+                            data: JSON.stringify(_this.credencial),
                             beforeSend(xhr) {
                                 xhr.setRequestHeader(
                                     "Authorization",
@@ -218,11 +214,7 @@
 
                 cancela(){
                     let _this = this;
-                    _this.credencial = {
-                        nome: null,
-                        senha: null,
-                        repSenha: null,
-                    };
+                    _this.credencial = {};
                     _this.erro = []
                 }
     
