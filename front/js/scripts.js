@@ -79,6 +79,12 @@ function footer() {
                         target="_blank"
                         >Eric Dourado</a
                         >
+                        <a
+                        class="grey-text text-lighten-3"
+                        href="https://github.com/renatoplopes"
+                        target="_blank"
+                        >/ Renato Lopes</a
+                        >
                     </li>
                     <li>
                         <a
@@ -86,6 +92,13 @@ function footer() {
                         href="https://github.com/alefvieira"
                         target="_blank"
                         >Alef Vieira</a
+                        >
+                        
+                        <a
+                        class="grey-text text-lighten-3"
+                        href="https://github.com/PHCoura"
+                        target="_blank"
+                        >/ Paulo Coura</a
                         >
                     </li>
                     <li>
@@ -96,6 +109,7 @@ function footer() {
                         >Eduardo Rodrigues</a
                         >
                     </li>
+                    
                     </ul>
                 </div>
                 </div>
@@ -118,7 +132,7 @@ function header() {
     <section class="barra-menu">
         <header>
             <nav>
-                <a href="/" class="logo"><i class="material-icons">add_to_queue</i>ES DEV</a>
+                <a href="/" class="logo"><i class="material-icons">local_hospital</i>ES DEV</a>
 
                 <div class="mobile-menu">
                     <div class="line1"></div>
