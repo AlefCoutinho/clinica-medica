@@ -5,6 +5,7 @@ function verificaAutenticacao(){
     }
 }
 
+
 function domReady(cb) {
     (function checkDomReady() {
       var state = document.readyState;
@@ -116,61 +117,38 @@ function footer(){
 
 function header(){
     $(".header").html(`
-    <header>
-        <nav class="nav-extended grey darken-4">
-        <div class="nav-wrapper">
-            <a href="/" class="center brand-logo"
-            ><i class="material-icons">add_to_queue</i>ES DEV</a
-            >
-            <ul id="nav-mobile" class=" hide-on-med-and-down">
-            <div class="left">
-                <li><a href="/">Pagina Inicial</a></li>
-                <li><a href="/front/medicamento/">Medicamento</a></li>
-                <li><a href="/front/medico/">Medico</a></li>
-                <li><a href="/front/paciente/">Paciente</a></li>
-            </div>
-            </ul>
-            <ul id="nav-mobile" class=" hide-on-small-only">
-            <div class="right">
-                <li>
-                <a
-                    href="/front/signin/"
-                    class="waves-effect waves-light btn green"
-                    ><i class="material-icons left">check</i>Entrar</a
-                >
-                </li>
-                <li v-on:click="deslogar()">
-                <a class="waves-effect waves-light btn red"
-                    ><i class="material-icons left">block</i>Sair</a
-                >
-                </li>
-            </ul>
-        </div>
-        <div class="hide-on-large-only	 nav-content">
-            <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="/">Pagina Inicial</a></li>
-            <li class="tab"><a href="/front/medicamento/">Medicamento</a></li>
-            <li class="tab"><a href="/front/medico/">Medico</a></li>
-            <li class="tab"><a href="/front/paciente/">Paciente</a></li>
+    <section class="barra-menu">
+        <header>
+            <nav>
+                <a href="/" class="logo"><i class="material-icons">add_to_queue</i>ES DEV</a>
 
-            </ul>
-        </div>
-        <div class="hide-on-med-and-up	 nav-content">
-            <ul class="tabs tabs-transparent">
-                <li>
-                    <a
-                    href="/front/signin/"
-                    class="waves-effect waves-light btn green"
-                    ><i class="material-icons left">check</i>Entrar</a
-                    >
-                </li>
-                <li v-on:click="deslogar()">
-                    <a class="waves-effect waves-light btn red"
-                    ><i class="material-icons left">block</i>Sair</a
-                    >
-                </li>
+                <div class="mobile-menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+
+                <ul class="nav-list">
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/front/medicamento/">Medicamento</a></li>
+                    <li><a href="/front/medico/">Medico</a></li>
+                    <li><a href="/front/paciente/">Paciente</a></li>
+                    <li>
+                        <a href="/front/signin/" class="waves-effect btn green">
+                            <i class="material-icons left">check</i>Sign In
+                        </a>
+                        <a href="/front/signin/" class="waves-effect btn orange">
+                            <i class="material-icons left">check</i>Sign Up
+                        </a>
+                    </li>
+                    <li v-on:click="deslogar()">
+                        <a class="waves-effect btn red">
+                            <i class="material-icons left">block</i>Sair
+                        </a>
+                    </li>
                 </ul>
-        </nav>
-    </header>
+            </nav>
+        </header>
+    </section>
     `)
 }

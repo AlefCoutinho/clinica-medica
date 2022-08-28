@@ -1,0 +1,134 @@
+
+
+a{
+    font-weight: 500;
+    /* color: #f23d3d; */
+    color: white;
+    text-decoration: none;
+}
+a.evtClick:hover{
+    color: white;
+    text-shadow: 0.2em 0.1em 0.2em #f23d3d;
+}
+.logo{
+    z-index: 10;
+    font-size: 27px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+nav .logo i{
+    color: #fff;
+    display: inline-block;
+    padding: 10px;
+
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* background: #000; */
+    height: 80px;
+    
+
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li{
+ letter-spacing:  3px;
+ /* margin-right: 32px;; */
+}
+.mobile-menu{
+    display: none;
+    cursor: pointer;
+}
+.mobile-menu div{
+    width: 32PX;
+    height: 2PX;
+    background-color: white;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+
+
+@media (max-width:1200px) {
+    /* barra do menu */
+    .barra-menu{
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        width: 100vw;   
+        height: 80px; 
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+    .nav-list{
+        z-index: 9;
+        position:absolute;
+        top: 0px;
+        right:0;
+        width: 60%; /*vw serve para setar o width*/
+        height: 100vh; /*vh serve para setar height*/
+        /* background-color: #23232e; */
+        background-color: #ee6e73;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-around; */
+        justify-content:center;
+        transform: translate(100%) ;
+        transition: transform 0.3s ease-in;
+    }
+    .nav-list li{
+        padding: 15px;
+        margin:0;
+        opacity: 0;
+    }
+
+    .mobile-menu{
+        z-index: 99;
+        display: block;
+    }
+    .nav-list.active{
+        transform: translate(0);
+    }
+    .nav-list.active a.clicked{
+        transform: translate(0);
+    }
+    
+}
+
+@media (max-width:768px) {
+    .nav-list{
+        width: 100%;
+    }
+
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translate(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.mobile-menu.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+.mobile-menu.active .line2{
+    opacity: 0;
+}
+.mobile-menu.active .line3{
+    transform: rotate(45deg) translate(-6px, -6px);
+}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="/front/css/style.css">
+    <link rel="stylesheet" href="/front/css/nav-bar.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
             {{header()}}
         </div>
 
-        <main>
+        <main class="conteudo">
             <div >
                 <div>
                     <div class="container">
@@ -59,7 +60,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="front/js/scripts.js"></script>
+    <script src="/front/js/scripts.js"></script>
+    
     <script>
         var vapp = new Vue({
             el: "#app",
@@ -164,6 +166,8 @@
             }
         });
     </script>
+
+    <script src="/front/js/mobileNavBar.js"></script>
 
 </body>
 

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav-bar.css">
+   
 </head>
 
 <body>
@@ -18,7 +20,7 @@
         <div class="header">
             {{header()}}
         </div>
-        <section class="posicao-section">
+        <section class="posicao-section conteudo">
             <div class="container ">
                 <div class="form-login">
                     <h2>Login</h2>
@@ -40,6 +42,7 @@
                     </div>
                     <div class="input-field col s12">
                         <button class="btn" v-on:click="getUsuarioLogin()">Acessar</button>
+                        <a href="/front/signup"  class="btn red">Cadastrar</a>
                     </div>
                 </div>
             </div>
@@ -118,9 +121,13 @@
                             //salva o token na storage
                             sessionStorage.setItem("token", r);
                             window.location.href = "/"
-                        }).fail((erro) => {
-
-                            if (erro.status >= 400) {
+                        }).fail((erro)=>{
+                            if(erro.status === 0){
+                                _this.erro = [];
+                                _this.erro.push("Falha na conexão, tente novamente mais tarde!")
+                            }
+                            if(erro.status >= 400) {
+                                _this.erro = [];
                                 _this.erro.push("Usuário ou senha incorreta")
                             }
                         });
@@ -153,6 +160,7 @@
             }
         })
     </script>
+    <script src="../js/mobileNavBar.js"></script>
 </body>
 
 </html>
