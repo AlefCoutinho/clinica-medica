@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'es';
+  src: url('../font/Devil Breeze Demi.ttf') format('truetype');
+}
+.center.brand-logo{
+  font-family: 'es';
+}
+
 *{
     margin: 0;
     padding: 0;

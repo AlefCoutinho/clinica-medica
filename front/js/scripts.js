@@ -1,25 +1,24 @@
-
-function verificaAutenticacao(){
-    if(sessionStorage.getItem("token") == null){
-        window.location.href = "/front/signin/";
-    }
+function verificaAutenticacao() {
+  if (sessionStorage.getItem('token') == null) {
+    window.location.href = '/front/signin/'
+  }
 }
 
 function domReady(cb) {
-    (function checkDomReady() {
-      var state = document.readyState;
-      if (state == 'loaded' || state == 'complete') cb();
-      else setTimeout(checkDomReady, 200);
-    })();
-  };
-  
-  domReady(function() {
-    $(".loader").hide();
-  });
+  ;(function checkDomReady() {
+    var state = document.readyState
+    if (state == 'loaded' || state == 'complete') cb()
+    else setTimeout(checkDomReady, 200)
+  })()
+}
+
+domReady(function () {
+  $('.loader').hide()
+})
 
 //   função loader
-function loader(){
-    $(".loader").html(`
+function loader() {
+  $('.loader').html(`
     <div class="radar-spinner">
         <div class="circle">
             <div class="circle-inner-container">
@@ -45,23 +44,22 @@ function loader(){
             </div>
         </div>
     </div>
-    `);
-} 
+    `)
+}
 
 // VERIFICAÇÃO DA DATA VÁLIDA
 // FUNções de data da compra
-const dataAtual = () =>{
-    var data = new Date();
-    var dia = String(data.getDate()).padStart(2, '0');
-    var mes = String(data.getMonth() + 1).padStart(2, '0');
-    var ano = data.getFullYear();
-    return `${ano}-${mes}-${dia}`;
-    
+const dataAtual = () => {
+  var data = new Date()
+  var dia = String(data.getDate()).padStart(2, '0')
+  var mes = String(data.getMonth() + 1).padStart(2, '0')
+  var ano = data.getFullYear()
+  return `${ano}-${mes}-${dia}`
 }
 
 // função Header
-function footer(){
-        $(".footer").html(`
+function footer() {
+  $('.footer').html(`
             <footer class="page-footer grey darken-4">
             <div class="center container">
                 <div class="row">
@@ -81,13 +79,11 @@ function footer(){
                         target="_blank"
                         >Eric Dourado</a
                         >
-                    </li>
-                    <li>
                         <a
                         class="grey-text text-lighten-3"
                         href="https://github.com/alefvieira"
                         target="_blank"
-                        >Alef Vieira</a
+                        >/ Alef Vieira</a
                         >
                     </li>
                     <li>
@@ -97,6 +93,18 @@ function footer(){
                         target="_blank"
                         >Eduardo Rodrigues</a
                         >
+                    </li>
+                    <li>
+                        <a
+                        class="grey-text text-lighten-3"
+                        href="https://github.com/renatoplopes"
+                        target="_blank"
+                        >Renato Lopes</a>
+                        <a
+                        class="grey-text text-lighten-3"
+                        href="https://github.com/BrunnoMGomes"
+                        target="_blank"
+                        >/ Bruno Gomes</a>
                     </li>
                     </ul>
                 </div>
@@ -114,13 +122,13 @@ function footer(){
         `)
 }
 
-function header(){
-    $(".header").html(`
+function header() {
+  $('.header').html(`
     <header>
         <nav class="nav-extended grey darken-4">
         <div class="nav-wrapper">
             <a href="/" class="center brand-logo"
-            ><i class="material-icons">add_to_queue</i>ES DEV</a
+            ><i class="material-icons">local_hospital</i>ES DEV</a
             >
             <ul id="nav-mobile" class=" hide-on-med-and-down">
             <div class="left">
