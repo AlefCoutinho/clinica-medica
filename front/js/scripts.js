@@ -126,10 +126,19 @@ function header() {
                     <div class="line3"></div>
                 </div>
 
+
+                
                 <ul class="nav-list">
+                    <li><a href="/">Início</a></li>
+                    <li>
                         <a href="/front/signin/" class="waves-effect btn green">
                             Logar
                         </a>
+                    </li>
+                    <li>
+                    <a href="/front/signup/" class="waves-effect btn orange">
+                        Cadastrar
+                    </a>
                     </li>
                 </ul>
             </nav>
@@ -154,11 +163,6 @@ function header() {
                     <li><a href="/front/medicamento/">Medicamento</a></li>
                     <li><a href="/front/medico/">Medico</a></li>
                     <li><a href="/front/paciente/">Paciente</a></li>
-                    <li>
-                        <a href="/front/signup/" class="waves-effect btn orange">
-                            Cadastrar
-                        </a>
-                    </li>
                     <li v-on:click="deslogar()">
                         <a class="waves-effect btn red">
                             <i class="material-icons left">block</i>Sair
