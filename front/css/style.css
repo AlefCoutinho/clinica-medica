@@ -1,108 +1,137 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* nav bar responsiva */
-nav{
-background-color: #00897b  ;  
+nav {
+  background-color: #00897b;
 }
+
 /* BARRA DE ROLAGEM */
 body::-webkit-scrollbar {
-width: 8px; /* width of the entire scrollbar */
+  width: 8px;
+  /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-track {
-background: rgb(255, 255, 255);        /* color of the tracking area */
+  background: rgb(255, 255, 255);
+  /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
-background-color: #00897b  ;  
-border: 1px solid white;
-/* color of the scroll thumb */
-border-radius: 0 20px 0 20px;       /* roundness of the scroll thumb */
-/* border: 3px solid orange;  creates padding around scroll thumb */
+  background-color: #00897b;
+  border: 1px solid white;
+  /* color of the scroll thumb */
+  border-radius: 0 20px 0 20px;
+  /* roundness of the scroll thumb */
+  /* border: 3px solid orange;  creates padding around scroll thumb */
 }
+
 body::-webkit-scrollbar-thumb:hover {
-background-color: #0f0f0f;    /* color of the scroll thumb */
-border-radius: 0 20px 0 20px;       /* roundness of the scroll thumb */
-/* border: 3px solid orange;  creates padding around scroll thumb */
+  background-color: #0f0f0f;
+  /* color of the scroll thumb */
+  border-radius: 0 20px 0 20px;
+  /* roundness of the scroll thumb */
+  /* border: 3px solid orange;  creates padding around scroll thumb */
 }
 
 /* selecionando textos */
-h1::selection, h2::selection, h3::selection, h1::selection, a::selection, span::selection , p::selection, img::selection, input::selection, textarea::selection, button::selection  {
-background: #443030;
-color: #ffffff;
+h1::selection,
+h2::selection,
+h3::selection,
+h1::selection,
+a::selection,
+span::selection,
+p::selection,
+img::selection,
+input::selection,
+textarea::selection,
+button::selection {
+  background: #443030;
+  color: #ffffff;
 }
+
 /* fim da estilização navbar e seleção dos textos */
 
 
 
-h2{
+h2 {
   font-size: 2rem;
 }
-.form-login{
+
+.form-login {
   margin: auto;
   min-width: 250px;
   width: 50%;
 }
-.form-login h2{
+
+.form-login h2 {
   text-align: center;
 }
 
-.error{
+.error {
   color: red;
   text-align: center;
   font-size: 12px;
 }
 
-body{
+body {
   color: rgb(78, 56, 0);
   background: rgb(241, 241, 241);
 }
 
-header{
-min-height: 80px;
+header {
+  min-height: 80px;
 }
 
-.posicao-section{
-display: flex; 
-   flex-wrap: nowrap;
+.posicao-section {
+  display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
   align-content: center;
   justify-content: center;
-  align-items: center; 
-
-}
-.conteudo{
-padding-top: 100px; 
+  align-items: center;
 
 }
 
-.home{
+.conteudo {
+  padding-top: 100px;
+
+}
+
+.home {
   padding: 20px 0;
   width: 100%;
 
 }
-footer{
-min-height: 210px;
+
+footer {
+  min-height: 210px;
 }
-#batata{
+
+#batata {
   text-align: center;
 }
 
-h1{
+/* h1{
   text-align: center;
   font-size: 3em;
   font-family: "Times New Roman";
   background-color:  whitesmoke;
+} */
+.input-field label {
+  /* padding: 10px; */
+  /* margin: 10px; */
+  color: #004d40;  
 }
 
 
 
+
 /* loader */
-.loader{
+.loader {
   display: flex;
   position: fixed;
   top: 0;
@@ -117,7 +146,8 @@ h1{
   background: white;
 }
 
-.radar-spinner, .radar-spinner * {
+.radar-spinner,
+.radar-spinner * {
   box-sizing: border-box;
 }
 
@@ -156,7 +186,8 @@ h1{
   animation-delay: 0ms;
 }
 
-.radar-spinner .circle-inner, .radar-spinner .circle-inner-container {
+.radar-spinner .circle-inner,
+.radar-spinner .circle-inner-container {
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -172,6 +203,7 @@ h1{
   50% {
     transform: rotate(180deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -179,69 +211,72 @@ h1{
 
 
 /* botão */
-.waves-effect{
+.waves-effect {
   width: 130px;
-  margin: 0 ;
+  margin: 0;
 }
 
-.userBlock{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content:center;
-color: white;
-min-width: 200px;
-width: 20%; 
-background: #00897b  ;
-height: 100px;
-border-radius: 20px ;
+.userBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  min-width: 200px;
+  width: 20%;
+  background: #00897b;
+  height: 100px;
+  border-radius: 20px;
 
 
 }
-.userBlockDiv{
-display: inline-block;
-margin: 10px 5px;
-}
-.userBlock:hover{
-background: rgba(0, 137, 123, 0.865) ;
+
+.userBlockDiv {
+  display: inline-block;
+  margin: 10px 5px;
 }
 
-.userBlock h4{
-font-size: 18px;
-text-transform: uppercase;
-}
-.userBlock legend{
-font-size: 14px;
+.userBlock:hover {
+  background: rgba(0, 137, 123, 0.865);
 }
 
-.lista-usuarios{
-padding: 50px 0;
+.userBlock h4 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.userBlock legend {
+  font-size: 14px;
+}
+
+.lista-usuarios {
+  padding: 50px 0;
 }
 
 @media (max-width:1200px) {
-.form-login{
-  width: 98% ;
-  
-}
+  .form-login {
+    width: 98%;
+
+  }
 }
 
-#titulo_area{
+#titulo_area {
   padding: 20px;
   display: block;
-  
-  border-style: none;  
+
+  border-style: none;
 }
 
-#text_area{
+#text_area {
   padding: 20px;
   border-style: ridge;
-  border-radius:5%;
+  border-radius: 5%;
   display: inline;
   background-color: #004d40;
-  color:white;
+  color: white;
 
 }
 
-.card>.card-content{
-min-height: 150px;
+.card>.card-content {
+  min-height: 150px;
 }
