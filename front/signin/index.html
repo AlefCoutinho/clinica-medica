@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/nav-bar.css">
-   
+
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="input-field col s12">
                         <button class="btn" v-on:click="getUsuarioLogin()">Acessar</button>
-                        <a href="/front/signup"  class="btn red">Cadastrar</a>
+                        <a href="/front/signup" class="btn red">Cadastrar</a>
                     </div>
                 </div>
             </div>
@@ -87,16 +87,18 @@
                         method: "GET",
                         success(r) {
                             usuarios = r;
-                            usuarios.forEach(usuario => {
-                                if (_this.credencialUsuario["nome"] == usuario["nome"]) {
-                                    console.log("usuario correto");
-                                    if (_this.credencialUsuario["senha"] == usuario["senha"]) {
-                                        _this.autenticar();
-                                    } else {
-                                        alert("USUARIO OU SENHA INCORRETA");
-                                    }
-                                }
-                            });
+                            // usuarios.forEach(usuario => {
+                            //     if (_this.credencialUsuario["nome"] == usuario["nome"] && _this.credencialUsuario["senha"] == usuario["senha"]) {
+                            //         _this.autenticar();
+                            //     }
+
+                            //     // console.log(age.find(i => i > 20));
+                            // });
+                            // console.log(usuarios.find(teste => usuario["nome"] == _this.credencialUsuario["nome"]))
+                            console.log(usuarios.hasOwnProperty("eric"))
+                            // console.log(usuarios.find(teste => _this.credencialUsuario["senha"] == usuario["senha"]))
+
+                            // if (usuarios.find(teste => _this.credencialUsuario["nome"] == usuario["nome"]))
                         },
                         error(x) {
                             console.log(`Erro: ${x}`);
@@ -121,12 +123,12 @@
                             //salva o token na storage
                             sessionStorage.setItem("token", r);
                             window.location.href = "/"
-                        }).fail((erro)=>{
-                            if(erro.status === 0){
+                        }).fail((erro) => {
+                            if (erro.status === 0) {
                                 _this.erro = [];
                                 _this.erro.push("Falha na conexão, tente novamente mais tarde!")
                             }
-                            if(erro.status >= 400) {
+                            if (erro.status >= 400) {
                                 _this.erro = [];
                                 _this.erro.push("Usuário ou senha incorreta")
                             }
