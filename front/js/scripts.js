@@ -108,6 +108,12 @@ function footer() {
                         target="_blank"
                         >Eduardo Rodrigues</a
                         >
+                        <a
+                        class="grey-text text-lighten-3"
+                        href="https://github.com/LuizFernando96"
+                        target="_blank"
+                        >/ Luiz Fernando</a
+                        >
                     </li>
                     
                     </ul>
