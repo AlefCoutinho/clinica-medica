@@ -135,7 +135,6 @@
                 },
                 salva() {
                     let _this = this;
-                    console.log(_this.paciente)
                     //requisição do tipo POST para inserir ou atualizar uma entidade
                     //se houver id então atualiza -> isso é verificado no backend
                     //envia token no header para autenticação
@@ -152,7 +151,6 @@
                         },
                         success(r) {
                             _this.getPacientes();
-                            console.log('passei aqui')
                             _this.cancela();
                         },
                         error(x) {
