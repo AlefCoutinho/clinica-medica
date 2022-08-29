@@ -15,26 +15,27 @@
 </head>
 
 <body>
-    
+
 
     <div id="app">
         <div class="header">
             {{header()}}
         </div>
-        <section class="conteudo">
-            <div class="container row">
-                <h1>Cadastro de Paciente</h1>
-                
+        <section class="conteudo teal lighten-5">
+            <div class="container row" style="text-align: center">
+                <h3 class="black-text">Cadastro de Paciente</h3>
+
                 <div class="error">
                     <ul>
                         <li v-for="er in erros">{{er}}</li>
                     </ul>
                 </div>
-    
+
                 <div class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Digite aqui" id="nome" type="text" class="validate" v-model.trim="paciente.nome">
+                            <input placeholder="Digite aqui" id="nome" type="text" class="validate"
+                                v-model.trim="paciente.nome">
                             <label for="nome">Nome <span style="color:red">*</span></label>
                         </div>
                         <div class="input-field col s6">
@@ -64,7 +65,7 @@
                         </div>
                         <div class="col s4">
                             <label> Tipo Sanguíneo </label>
-                            <select class="browser-default" v-model.trim="paciente.tipo_sanguineo">
+                            <select class="browser-default transparente_select" v-model.trim="paciente.tipo_sanguineo">
                                 <option value="" disabled selected>Escolha o tipo</option>
                                 <option value="A+"> A+ </option>
                                 <option value="A-">A-</option>
@@ -76,17 +77,17 @@
                                 <option value="AB-">AB-</option>
                             </select>
                         </div>
-    
+
                         <div class="input-field col s12">
                             <input placeholder="Digite aqui" id="doenca" type="text" class="validate"
                                 v-model.trim="paciente.doenca_cronica">
                             <label for="doenca">Doença Crônica</label>
                         </div>
-    
-    
+
+
                         <div class="input-field col s12">
-                            <button class="btn" v-on:click="salva()">Salvar</button>
-                            <button class="btn orange" v-on:click="cancela()">
+                            <button class="btn blue darken-4" v-on:click="salva()">Salvar</button>
+                            <button class="btn orange darken-4" v-on:click="cancela()">
                                 Cancelar
                             </button>
                             <button class="btn red" v-on:click="exclui()">Excluir</button>
@@ -94,24 +95,40 @@
                     </div>
                 </div>
                 <div class="col s12">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 10%">Nome</th>
-                                <th>Idade</th>
-                                <th>Alergia</th>
-                                <th>Tipo Sanguíneo </th>
-                        </thead>
-                        <tbody>
-    
-                            <tr v-for="(t, index) in pacientes" v-on:click="selecionaPaciente(t)" style="cursor: pointer">
-                                <td style="width:30%">{{t.nome}}</td>
-                                <td style="width:23%">{{pegarIdade(t.data_nascimento)}}</td>
-                                <td style="width:23%">{{t.alergia}}</td>
-                                <td style="width:23%">{{t.tipo_sanguineo}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <section class="conteudo">
+                        <div class="row">
+                            <!-- <div class="col l4 m12 s12"> -->
+                            <div class="card teal">
+                                <div class="card-content white-text ">
+                                    <span class="card-title"
+                                        style="text-align: center; font-weight: bold;">Profissionais Cadastrados</span>
+                                    <table class="bluez-depth-5">
+                                        <thead>
+                                            <tr class="teal darken-4">
+                                                <th style="width: 10%">Nome</th>
+                                                <th>Idade</th>
+                                                <th>Alergia</th>
+                                                <th>Tipo Sanguíneo </th>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr v-for="(t, index) in pacientes" v-on:click="selecionaPaciente(t)"
+                                                style="cursor: pointer" class=" teal lighten-5 black-text">
+                                                <td style="width:30%">{{t.nome}}</td>
+                                                <td style="width:23%">{{pegarIdade(t.data_nascimento)}}</td>
+                                                <td style="width:23%">{{t.alergia}}</td>
+                                                <td style="width:23%">{{t.tipo_sanguineo}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <!-- </div> -->
+
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </section>
@@ -129,7 +146,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/scripts.js"></script>
-    
+
     <script>
         var vapp = new Vue({
             el: "#app",
@@ -149,11 +166,11 @@
                 this.getPacientes();
             },
             methods: {
-                deslogar(){
+                deslogar() {
                     sessionStorage.removeItem("token");
                     window.location.href = "/front/signin"
                 },
-                validarForm(){
+                validarForm() {
                     let _this = this;
 
                     // (_this.paciente.alergia == null || _this.paciente.alergia == "" )? _this.paciente.alergia : ""; 
