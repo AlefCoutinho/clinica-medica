@@ -77,43 +77,39 @@ function footer() {
                         class="grey-text text-lighten-3"
                         href="https://github.com/ericdourado"
                         target="_blank"
-                        >Eric Dourado</a
-                        >
+                        >Eric Dourado</a>
+                        /
                         <a
                         class="grey-text text-lighten-3"
                         href="https://github.com/renatoplopes"
                         target="_blank"
-                        >/ Renato Lopes</a
-                        >
+                        > Renato Lopes</a>
                     </li>
                     <li>
                         <a
                         class="grey-text text-lighten-3"
                         href="https://github.com/alefvieira"
                         target="_blank"
-                        >Alef Vieira</a
-                        >
-                        
+                        >Alef Vieira</a>
+                        /
                         <a
                         class="grey-text text-lighten-3"
                         href="https://github.com/PHCoura"
                         target="_blank"
-                        >/ Paulo Coura</a
-                        >
+                        >Paulo Coura</a>
                     </li>
                     <li>
                         <a
                         class="grey-text text-lighten-3"
                         href="https://github.com/lobistico"
                         target="_blank"
-                        >Eduardo Rodrigues</a
-                        >
-                        <a
+                        >Eduardo Rodrigues</a>
+                        /
+                        <a 
                         class="grey-text text-lighten-3"
                         href="https://github.com/LuizFernando96"
                         target="_blank"
-                        >/ Luiz Fernando</a
-                        >
+                        >Luiz Fernando</a>
                     </li>
                     
                     </ul>

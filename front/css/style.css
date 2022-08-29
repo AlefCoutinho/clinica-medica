@@ -291,3 +291,10 @@ footer {
 .card>.card-content {
   min-height: 150px;
 }
+
+.inicio-section{
+  min-height: calc( 100vh - 211px - 80px );
+}
+.footer a.grey-text:hover{
+  color: #00897b !important;
+}
