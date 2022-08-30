@@ -145,7 +145,8 @@ function header() {
 
                 
                 <ul class="nav-list">
-                    <li><a href="/Home.html">Início</a></li>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/QuemSomos.html">Quem somos</a></li>
                     <li>
                         <a href="/front/signin/" class="waves-effect btn green">
                             Logar
@@ -176,6 +177,7 @@ function header() {
 
                 <ul class="nav-list">
                     <li><a href="/Home.html">Início</a></li>
+                    <li><a href="/QuemSomos.html">Quem somos</a></li>
                     <li><a href="/front/medicamento/">Medicamento</a></li>
                     <li><a href="/front/medico/">Medico</a></li>
                     <li><a href="/front/paciente/">Paciente</a></li>
