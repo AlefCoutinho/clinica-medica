@@ -70,8 +70,13 @@
                                 <option value="A+"> A+ </option>
                                 <option value="A-">A-</option>
                                 <option value="B+">B+</option>
+<<<<<<< HEAD
                                 <option value="B-">B-</option>
                                 <option value="O+">O+</option>
+=======
+                                <option value="B+">B-</option>
+                                <option value="B+">O+</option>
+>>>>>>> 195a6dc71341f1d401461d11f64ada76c726f163
                                 <option value="O-">O-</option>
                                 <option value="AB+">AB+</option>
                                 <option value="AB-">AB-</option>
@@ -95,6 +100,7 @@
                     </div>
                 </div>
                 <div class="col s12">
+<<<<<<< HEAD
                     <section class="conteudo">
                         <div class="row">
                             <!-- <div class="col l4 m12 s12"> -->
@@ -131,6 +137,28 @@
                         </div>
                     </section>
 
+=======
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 10%">Nome</th>
+                                <th>Idade</th>
+                                <th>Alergia</th>
+                                <th>Tipo Sanguíneo</th>
+                                <th>Doença Crônica</th>
+                        </thead>
+                        <tbody>
+    
+                            <tr v-for="(t, index) in pacientes" v-on:click="selecionaPaciente(t)" style="cursor: pointer">
+                                <td style="width:30%">{{t.nome}}</td>
+                                <td style="width:17%">{{pegarIdade(t.data_nascimento)}}</td>
+                                <td style="width:18%">{{t.alergia}}</td>
+                                <td style="width:17%">{{t.tipo_sanguineo}}</td>
+                                <td style="width:18%">{{t.doenca_cronica}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+>>>>>>> 195a6dc71341f1d401461d11f64ada76c726f163
                 </div>
             </div>
         </section>

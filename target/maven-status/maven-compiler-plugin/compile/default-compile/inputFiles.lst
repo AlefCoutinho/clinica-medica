@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\lobis\Desktop\PROJETO\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\CadastroUsuarioController.java
 C:\Users\lobis\Desktop\PROJETO\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\LoginController.java
 C:\Users\lobis\Desktop\PROJETO\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\CadastroUsuario.java
@@ -19,3 +20,26 @@ C:\Users\lobis\Desktop\PROJETO\clinica-medica\src\main\java\br\com\esdev\cadclin
 C:\Users\lobis\Desktop\PROJETO\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\Pessoa.java
 C:\Users\lobis\Desktop\PROJETO\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\PessoaController.java
 C:\Users\lobis\Desktop\PROJETO\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\PacienteController.java
+=======
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\PacienteController.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\PacienteRepository.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\Paciente.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\filter\AutFilter.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\Medico.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\MedicamentoController.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\MedicoController.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\CadclinicarestApplication.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\PessoaController.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\Pessoa.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\CadastroUsuarioController.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\HomeController.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\CadastroUsuarioRepository.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\Medicamento.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\MedicamentoRepository.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\MedicoRepository.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\PessoaRepository.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\model\CadastroUsuario.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\config\AppConfig.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\control\LoginController.java
+C:\ProjetoClinica\clinica-medica\src\main\java\br\com\esdev\cadclinicarest\util\JWTUtil.java
+>>>>>>> 195a6dc71341f1d401461d11f64ada76c726f163
