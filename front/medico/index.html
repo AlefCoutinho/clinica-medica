@@ -82,8 +82,9 @@
                                     <table class="bluez-depth-5">
                                         <thead>
                                             <tr class="teal darken-4">
-                                                <th style="width: 50%">Nome</th>
+                                                <th>Nome</th>
                                                 <th>Idade</th>
+                                                <th>Especialização</th>
                                                 <th>Registro</th>
                                                 <th>Unidade Trabalho </th>
                                         </thead>
@@ -92,9 +93,10 @@
                                             <tr v-for="(t, index) in medicos" v-on:click="selecionaMedico(t)"
                                                 style="cursor: pointer" class=" teal lighten-5 black-text">
                                                 <td style="width:30%">{{t.nome}}</td>
-                                                <td style="width:23%">{{pegarIdade(t.data_nascimento)}}</td>
-                                                <td style="width:23%">{{t.registro_crm}}</td>
-                                                <td style="width:23%">{{t.unidade_trabalho}}</td>
+                                                <td style="width:17%">{{pegarIdade(t.data_nascimento)}}</td>
+                                                <td style="width:17%">{{t.especializacao}}</td>
+                                                <td style="width:17%">{{t.registro_crm}}</td>
+                                                <td style="width:17%">{{t.unidade_trabalho}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
