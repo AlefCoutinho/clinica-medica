@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Página Inicial</title>
+    <title>Área de Cadastro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -17,17 +17,51 @@
         <div class="header">
             {{header()}}
         </div>
+        
         <section class="conteudo inicio-section">
             <div class="row">
-                <div style="text-align: center; font-weight: bold; font-size: 50px ; color:#004d40 ">
-                    <p>
-                        Bem-vindo ao sistema Clinica Médica.
-                    </p> 
-                    <p>
-                        Efetue o login para aproveitar ao máximo o sistema.  
-                    </p> 
-                        
-                    
+   
+                <div class="col l4 m12 s12">
+                    <div class="card teal darken-4">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="text-align: center; font-weight: bold;">Medicamento</span>
+                            <p> Acessando essa funcionalidade será possível efetuar o cadastro de medicamentos utilizados.</p>
+                        </div>
+                        <div class="card-action" style="text-align:center">
+                            <a href="/front/medicamento/">
+                                <p class="material-icons medium" style="text-align:center"> add_circle </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l4 m12 s12">
+                    <div class="card teal darken-4">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="text-align: center; font-weight: bold;">Médico</span>
+                            <p> Acessando essa funcionalidade será possível efetuar o cadastro dos médicos envolvidos com o
+                                sistema.</p>
+                        </div>
+                        <div class="card-action" style="text-align:center">
+                            <a href="/front/medico/">
+                                <p class="material-icons medium" style="text-align:center"> add_circle </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col l4 m12 s12">
+                    <div class="card teal darken-4">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="text-align: center; font-weight: bold;">Paciente</span>
+                            <p> Acessando essa funcionalidade será possível efetuar o cadastro dos Pacientes envolvidos com o
+                                sistema.</p>
+                        </div>
+                        <div class="card-action" style="text-align:center">
+                            <a href="/front/paciente/">
+                                <p class="material-icons Medium" style="text-align:center"> add_circle </p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
